@@ -1,5 +1,6 @@
 import React from "react";
 import ChartBar from "./ChartBar";
+import "./Chart.css";
 
 const Chart = () => {
   const chartData = [
@@ -17,7 +18,7 @@ const Chart = () => {
     { value: 0, title: "DEC" },
   ];
   return (
-    <div>
+    <div className="chart">
       {chartData.map((item) => {
         return <ChartBar title={item.title} value={item.value} />;
       })}

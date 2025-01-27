@@ -1,3 +1,4 @@
+import Chart from "./components/Chart";
 import ExpenseItem from "./components/ExpenseItem";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
   ];
   return (
     <div>
+      <Chart />
       {data.map((expense) => {
         return (
           <ExpenseItem
