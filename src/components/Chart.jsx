@@ -2,7 +2,7 @@ import React from "react";
 import ChartBar from "./ChartBar";
 import "./Chart.css";
 
-const Chart = () => {
+const Chart = ({ data }) => {
   const chartData = [
     { value: 0, title: "JAN" },
     { value: 0, title: "FEB" },
@@ -17,6 +17,11 @@ const Chart = () => {
     { value: 0, title: "NOV" },
     { value: 0, title: "DEC" },
   ];
+  for (const expense of data) {
+    chartData[expense.date.getMonth()].value += expense.price;
+  }
+  console.log(chartData);
+  //   const max =
   return (
     <div className="chart">
       {chartData.map((item) => {

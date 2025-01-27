@@ -6,7 +6,7 @@ import "./ExpensesContainer.css";
 const ExpensesContainer = ({ data }) => {
   return (
     <div className="expenses-container">
-      <Chart />
+      <Chart data={data} />
       {data.map((expense) => {
         return (
           <ExpenseItem
