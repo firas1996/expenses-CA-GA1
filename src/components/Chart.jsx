@@ -20,12 +20,13 @@ const Chart = ({ data }) => {
   for (const expense of data) {
     chartData[expense.date.getMonth()].value += expense.price;
   }
-  console.log(chartData);
-  //   const max =
+
+  const max = Math.max(...chartData.map((i) => i.value));
+  console.log(max);
   return (
     <div className="chart">
       {chartData.map((item) => {
-        return <ChartBar title={item.title} value={item.value} />;
+        return <ChartBar title={item.title} value={item.value} max={max} />;
       })}
     </div>
   );
