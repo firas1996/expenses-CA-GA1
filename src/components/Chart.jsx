@@ -22,7 +22,7 @@ const Chart = ({ data }) => {
   }
 
   const max = Math.max(...chartData.map((i) => i.value));
-  console.log(max);
+  // console.log(max);
   return (
     <div className="chart">
       {chartData.map((item) => {

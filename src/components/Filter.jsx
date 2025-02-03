@@ -1,13 +1,17 @@
 import React from "react";
 import "./Filter.css";
-const Filter = () => {
+const Filter = ({ years, setDate }) => {
   return (
     <div className="expenses-filter">
       <label>Filter By Year</label>
-      <select>
-        <option>a</option>
-        <option>b</option>
-        <option>c</option>
+      <select
+        onChange={(event) => {
+          setDate(event.target.value);
+        }}
+      >
+        {years.map((el) => {
+          return <option value={el}>{el}</option>;
+        })}
       </select>
     </div>
   );
