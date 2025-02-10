@@ -1,24 +1,24 @@
-import React from "react";
+import "./AddExpenseItem.css";
 
 const AddExpenseItem = () => {
   return (
-    <div>
+    <div className="new-expense">
       <form>
-        <div>
-          <div>
+        <div className="new-expense__controls">
+          <div className="new-expense__control">
             <label>Title</label>
             <input />
           </div>
-          <div>
+          <div className="new-expense__control">
             <label>Price</label>
             <input />
           </div>
-          <div>
+          <div className="new-expense__control">
             <label>Date</label>
             <input />
           </div>
         </div>
-        <div>
+        <div className="new-expense__actions">
           <button>Concel</button>
           <button>Add Expense</button>
         </div>

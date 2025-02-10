@@ -1,3 +1,4 @@
+import AddExpenseItem from "./components/AddExpenseItem";
 import Chart from "./components/Chart";
 import ExpenseItem from "./components/ExpenseItem";
 import ExpensesContainer from "./components/ExpensesContainer";
@@ -31,6 +32,7 @@ function App() {
   ];
   return (
     <div>
+      <AddExpenseItem />
       <ExpensesContainer data={data} />
     </div>
   );
