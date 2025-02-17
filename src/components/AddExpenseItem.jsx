@@ -2,6 +2,10 @@ import { useState } from "react";
 import "./AddExpenseItem.css";
 
 const AddExpenseItem = ({ addExpense }) => {
+  const [isColapsed, setIsColapsed] = useState(true);
+  const handelColaps = () => {
+    setIsColapsed(!isColapsed);
+  };
   const [inputs, setInputs] = useState({
     title: "",
     price: "",
@@ -32,45 +36,54 @@ const AddExpenseItem = ({ addExpense }) => {
   };
   return (
     <div className="new-expense">
-      <form onSubmit={submitHandler}>
-        <div className="new-expense__controls">
-          <div className="new-expense__control">
-            <label>Title</label>
-            <input
-              placeholder="Title"
-              onChange={inputChangeHandler}
-              value={inputs.title}
-              name="title"
-            />
+      {isColapsed ? (
+        <button onClick={handelColaps}>Add New Expense</button>
+      ) : (
+        <form onSubmit={submitHandler}>
+          <div className="new-expense__controls">
+            <div className="new-expense__control">
+              <label>Title</label>
+              <input
+                required
+                placeholder="Title"
+                onChange={inputChangeHandler}
+                value={inputs.title}
+                name="title"
+              />
+            </div>
+            <div className="new-expense__control">
+              <label>Price</label>
+              <input
+                required
+                placeholder="Price"
+                type="number"
+                min="0"
+                onChange={inputChangeHandler}
+                value={inputs.price}
+                name="price"
+              />
+            </div>
+            <div className="new-expense__control">
+              <label>Date</label>
+              <input
+                required
+                type="date"
+                min={minDate}
+                max={maxDate}
+                onChange={inputChangeHandler}
+                value={inputs.date}
+                name="date"
+              />
+            </div>
           </div>
-          <div className="new-expense__control">
-            <label>Price</label>
-            <input
-              placeholder="Price"
-              type="number"
-              min="0"
-              onChange={inputChangeHandler}
-              value={inputs.price}
-              name="price"
-            />
+          <div className="new-expense__actions">
+            <button type="button" onClick={handelColaps}>
+              Cancel
+            </button>
+            <button type="submit">Add Expense</button>
           </div>
-          <div className="new-expense__control">
-            <label>Date</label>
-            <input
-              type="date"
-              min={minDate}
-              max={maxDate}
-              onChange={inputChangeHandler}
-              value={inputs.date}
-              name="date"
-            />
-          </div>
-        </div>
-        <div className="new-expense__actions">
-          <button>Cancel</button>
-          <button type="submit">Add Expense</button>
-        </div>
-      </form>
+        </form>
+      )}
     </div>
   );
 };

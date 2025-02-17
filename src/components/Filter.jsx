@@ -10,7 +10,11 @@ const Filter = ({ years, setDate }) => {
         }}
       >
         {years.map((el) => {
-          return <option value={el}>{el}</option>;
+          return (
+            <option key={el} value={el}>
+              {el}
+            </option>
+          );
         })}
       </select>
     </div>
