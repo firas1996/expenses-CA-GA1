@@ -14,7 +14,6 @@ const ExpensesContainer = ({ data }) => {
   const filtredData = data.filter((i) => {
     return date === "All" ? true : i.date.getFullYear() == date;
   });
-  console.log(filtredData);
   return (
     <div className="expenses-container">
       <Filter years={years} setDate={setDate} />

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./AddExpenseItem.css";
 
-const AddExpenseItem = () => {
+const AddExpenseItem = ({ addExpense }) => {
   const [inputs, setInputs] = useState({
     title: "",
     price: "",
@@ -13,15 +13,17 @@ const AddExpenseItem = () => {
       return { ...prevState, [name]: value };
     });
   };
-  const x = 0;
-  console.log(x);
   const dateSys = new Date(Date.now()).getFullYear();
-  console.log(dateSys);
   const maxDate = `${dateSys + 2}-12-31`;
   const minDate = `${dateSys - 2}-01-01`;
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log(inputs);
+    addExpense({
+      id: Math.random(),
+      title: inputs.title,
+      price: +inputs.price,
+      date: new Date(inputs.date),
+    });
     setInputs({
       title: "",
       price: "",
