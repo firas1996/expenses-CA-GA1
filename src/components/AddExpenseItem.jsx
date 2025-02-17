@@ -13,6 +13,8 @@ const AddExpenseItem = () => {
       return { ...prevState, [name]: value };
     });
   };
+  const x = 0;
+  console.log(x);
   const dateSys = new Date(Date.now()).getFullYear();
   console.log(dateSys);
   const maxDate = `${dateSys + 2}-12-31`;
